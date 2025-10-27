@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Case Study of Project 3</title>
+    <meta name="description" content="Case study page of Project" />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__content">
+        <div class="header__logo-container">
+          <div class="header__logo-img-cont">
+            <img
+              src="./assets/jpeg/avatar.jpeg"
+              alt="Artyom Borodovitsyn Avatar"
+              class="header__logo-img"
+            />
+          </div>
+          <span class="header__logo-sub">Artyom Borodovitsyn</span>
+        </div>
+        <div class="header__main">
+          <ul class="header__links">
+            <li class="header__link-wrapper">
+              <a href="./index.html" class="header__link"> Home </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#about" class="header__link">About </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#projects" class="header__link">
+                Projects
+              </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#experience" class="header__link">Experience </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#contact" class="header__link"> Contact </a>
+            </li>
+          </ul>
+          <div class="header__main-ham-menu-cont">
+            <img
+              src="./assets/svg/ham-menu.svg"
+              alt="hamburger menu"
+              class="header__main-ham-menu"
+            />
+            <img
+              src="./assets/svg/ham-menu-close.svg"
+              alt="hamburger menu close"
+              class="header__main-ham-menu-close d-none"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="header__sm-menu">
+        <div class="header__sm-menu-content">
+          <ul class="header__sm-menu-links">
+            <li class="header__sm-menu-link">
+              <a href="./index.html"> Home </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="./index.html#about"> About </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="./index.html#projects"> Projects </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="./index.html#contact"> Contact </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <section class="project-cs-hero">
+      <div class="project-cs-hero__content">
+        <h1 class="heading-primary">Vault Escape</h1>
+        <div class="project-cs-hero__info">
+          <p class="text-primary">
+            2D runner built with Java (Swing) and tested with JUnit. Multiple levels and simple state management; built for clarity and maintainability.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="project-details">
+      <div class="main-container">
+        <div class="project-details__content">
+          <!-- Device video mockup -->
+          <div class="device">
+            <!-- The frame image (your monitor/laptop PNG) -->
+            <img
+              src="./assets/jpeg/project-mockup-example.jpeg"
+              alt="Laptop frame"
+              class="device__frame"
+            />
+
+            <!-- The video that fills the screen area -->
+            <video
+              class="device__screen"
+              src="./assets/mp4/vaultescapedemo.mp4"
+              controls
+              playsinline
+              preload="metadata"
+              poster="./assets/png/video-poster.png"
+            ></video>
+
+            <!-- Optional: a custom fullscreen button (useful on iOS Safari) -->
+            <button class="device__fullscreen" aria-label="Toggle fullscreen">⤢</button>
+          </div>
+          <div class="project-details__content-main">
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">Project Overview</h3>
+              <p class="project-details__desc-para">
+                <strong>Vault Escape</strong> is a 2D runner game, 
+                designed to emphasize clarity, modularity, and strong gameplay feel. 
+                The project combines handcrafted assets, responsive controls, and dynamic level generation 
+                to create a challenging but accessible experience.
+              </p>
+
+              <p class="project-details__desc-para">
+                The game was built using <strong>Java Swing</strong> and <strong>JavaFX</strong>, 
+                with robust unit testing implemented through <strong>JUnit</strong>. 
+                The level creation system was initially designed to support complex procedural mechanics, 
+                but later refined into a simpler and more maintainable approach for efficient gameplay tuning.
+              </p>
+
+              <p class="project-details__desc-para">
+                Overall, Vault Escape reflects an iterative development process 
+                that was based ob best OOP principles, focused on 
+                balancing creativity and simplicity — combining technical rigor with a polished, 
+                minimalist design philosophy.
+              </p>
+
+            </div>
+            <div class="project-details__tools-used">
+              <h3 class="project-details__content-title">Tools Used</h3>
+              <div class="skills">
+                <div class="skills__skill">Java</div>
+                <div class="skills__skill">Swing</div>
+                <div class="skills__skill">JavaFX</div>
+                <div class="skills__skill">JUnit</div>
+                <div class="skills__skill">Maven</div>
+                <div class="skills__skill">Level Generation</div>
+                <div class="skills__skill">Git</div>
+              </div>
+            </div>
+            <div class="project-details__links">
+              <h3 class="project-details__content-title">See Live</h3>
+              <a
+                href="#"
+                class="btn btn--med btn--theme-inv project-details__links-btn"
+                target="_blank"
+                >Download</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="main-footer">
+      <div class="main-container">
+        <div class="main-footer__upper">
+          <div class="main-footer__row main-footer__row-1">
+            <h2 class="heading heading-sm main-footer__heading-sm">
+              <span>Social</span>
+            </h2>
+            <div class="main-footer__social-cont">
+              <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/borodooovitsyn" aria-label="LinkedIn">
+                <img class="main-footer__icon" src="./assets/png/linkedin-ico.png" alt="LinkedIn" />
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://github.com/borodovitsyn" aria-label="GitHub">
+                <img class="main-footer__icon" src="./assets/png/github-ico.png" alt="GitHub" />
+              </a>
+              <a target="_blank" rel="noreferrer" href="mailto:aba262@sfu.ca" aria-label="Email">
+                <img class="main-footer__icon" src="./assets/png/yt-ico.png" alt="Email Icon" />
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://twitter.com" aria-label="Twitter">
+                <img class="main-footer__icon" src="./assets/png/twitter-ico.png" alt="Twitter/X" />
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://instagram.com" aria-label="Instagram">
+                <img class="main-footer__icon main-footer__icon--mr-none" src="./assets/png/insta-ico.png" alt="Instagram" />
+              </a>
+            </div>
+          </div>
+          <div class="main-footer__row main-footer__row-2">
+            <h4 class="heading heading-sm text-lt">Artyom Borodovitsyn</h4>
+            <p class="main-footer__short-desc">
+              Software developer in Vancouver — Unity multiplayer, AI/ML, and pragmatic backend work. SFU Computing Science.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./index.js"></script>
+  </body>
+</html>

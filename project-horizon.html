@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Case Study of Project 1</title>
+    <meta name="description" content="Case study page of Project" />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__content">
+        <div class="header__logo-container">
+          <div class="header__logo-img-cont">
+            <img
+              src="./assets/jpeg/avatar.jpeg"
+              alt="Artyom Borodovitsyn Avatar"
+              class="header__logo-img"
+            />
+          </div>
+          <span class="header__logo-sub">Artyom Borodovitsyn</span>
+        </div>
+        <div class="header__main">
+          <ul class="header__links">
+            <li class="header__link-wrapper"><a href="./index.html" class="header__link"> Home </a></li>
+            <li class="header__link-wrapper"><a href="./index.html#about" class="header__link"> About </a></li>
+            <li class="header__link-wrapper"><a href="./index.html#projects" class="header__link"> Projects </a></li>
+            <li class="header__link-wrapper"><a href="./index.html#experience" class="header__link"> Experience </a></li>
+            <li class="header__link-wrapper"><a href="./index.html#contact" class="header__link"> Contact </a></li>
+          </ul>
+          <div class="header__main-ham-menu-cont">
+            <img src="./assets/svg/ham-menu.svg" alt="hamburger menu" class="header__main-ham-menu" />
+            <img src="./assets/svg/ham-menu-close.svg" alt="hamburger menu close" class="header__main-ham-menu-close d-none" />
+          </div>
+        </div>
+      </div>
+      <div class="header__sm-menu">
+        <div class="header__sm-menu-content">
+          <ul class="header__sm-menu-links">
+            <li class="header__sm-menu-link"><a href="./index.html"> Home </a></li>
+            <li class="header__sm-menu-link"><a href="./index.html#about"> About </a></li>
+            <li class="header__sm-menu-link"><a href="./index.html#projects"> Projects </a></li>
+            <li class="header__sm-menu-link"><a href="./index.html#contact"> Contact </a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <section class="project-cs-hero">
+      <div class="project-cs-hero__content">
+        <h1 class="heading-primary">Horizon Expedition</h1>
+        <div class="project-cs-hero__info">
+          <p class="text-primary">
+            3D multiplayer survival and exploration game built in Unity.
+            Features include synchronized combat, trading, and networked player systems
+            developed using Mirror and C#. Designed for scalability and cooperative gameplay.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-details">
+      <div class="main-container">
+        <div class="project-details__content">
+          <!-- 💻 Monitor + Video mockup -->
+          <div class="device">
+            <img
+              src="./assets/jpeg/project-mockup-example.jpeg"
+              alt="Laptop frame"
+              class="device__frame"
+            />
+            <img
+              class="device__screen"
+              src="./assets/png/hex_logo.png"
+              alt="Horizon Expedition Logo"
+            />
+
+
+          </div>
+
+          <div class="project-details__content-main">
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">Project Overview</h3>
+              <p class="project-details__desc-para">
+                <strong>Horizon Expedition</strong> is a 3D multiplayer exploration and combat game
+                developed in <strong>Unity</strong> using <strong>Mirror Networking</strong>.
+                The project focuses on player cooperation, synchronized interactions, and
+                a dynamic world that responds in real-time to every player’s actions.
+              </p>
+
+              <p class="project-details__desc-para">
+                The core idea was to build a scalable multiplayer framework capable of
+                supporting <strong>real-time player combat</strong>, <strong>shared world objects</strong>,
+                and <strong>network-synced inventories</strong>. Each player controls a fully animated 3D character
+                equipped with movement, combat, and interaction systems designed to work seamlessly over a network.
+              </p>
+
+              <p class="project-details__desc-para">
+                Every element — from stamina and health systems to inventory and merchant interfaces —
+                was built with <strong>server authority</strong> in mind to ensure fairness and prevent desynchronization.
+                Players can collect, equip, trade, and store items across sessions through a global inventory system.
+              </p>
+
+              <p class="project-details__desc-para">
+                The project’s architecture follows a modular component design,
+                separating responsibilities between networking logic, UI management, and core gameplay.
+                This makes it easy to extend with additional features some of which were already shipped:
+                trading system and procedurally generated maps.
+              </p>
+
+              <p class="project-details__desc-para">
+                Developed collaboratively by a small team of designers and programmers,
+                <strong>Horizon Expedition</strong> reflects a balance between technical precision and
+                creative design. The project served as a foundation for exploring concepts like
+                <strong>player synchronization</strong>, <strong>server-side validation</strong>,
+                and <strong>network object spawning</strong> in modern Unity environments.
+              </p>
+            </div>
+
+            <div class="project-details__tools-used">
+              <h3 class="project-details__content-title">Tools Used</h3>
+              <div class="skills">
+                <div class="skills__skill">Unity</div>
+                <div class="skills__skill">C#</div>
+                <div class="skills__skill">Mirror Networking</div>
+                <div class="skills__skill">Blender</div>
+                <div class="skills__skill">MagicaVoxel</div>
+                <div class="skills__skill">Git</div>
+                <div class="skills__skill">Visual Studio</div>
+                <div class="skills__skill">Testing</div>
+              </div>
+            </div>
+
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">Key Features</h3>
+              <ul class="project-details__desc-para">
+                <li><strong>Multiplayer Networking</strong> – Real-time player synchronization using Mirror with server-side control.</li>
+                <li><strong>Combat System</strong> – Melee and ranged combat with animation triggers, hit detection, and cooldown logic.</li>
+                <li><strong>Inventory & Merchant Systems</strong> – Dynamic item management with server-wide consistency.</li>
+                <li><strong>Player Stats</strong> – Stamina, hunger, and thirst mechanics that affect movement and performance.</li>
+                <li><strong>NPC AI</strong> – Basic and ranged enemies powered by behavior trees and pathfinding.</li>
+                <li><strong>UI/UX Systems</strong> – Interactive menus, chest systems, and a responsive pause/inventory interface.</li>
+                <li><strong>Voxel-Based World</strong> – Lightweight voxel maps built in MagicaVoxel and integrated with collision systems.</li>
+              </ul>
+            </div>
+
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">Development Highlights</h3>
+              <ul class="project-details__desc-para">
+                <li>- Implemented authoritative server mechanics to ensure consistent gameplay across clients.</li>
+                <li>- Created custom player prefabs with synchronized stats, animations, and interactions.</li>
+                <li>- Integrated dynamic inventory UI and merchant NPC trading using scriptable objects.</li>
+                <li>- Designed an extendable combat manager for future addition of abilities and ranged attacks.</li>
+                <li>- Managed version control through GitHub for collaborative workflow.</li>
+              </ul>
+            </div>
+
+            <div class="project-details__links">
+              <h3 class="project-details__content-title">See Live</h3>
+              <a href="#" class="btn btn--med btn--theme project-details__links-btn" target="_blank">Gameplay Demo</a>
+              <a href="#" class="btn btn--med btn--theme-inv project-details__links-btn" target="_blank">Source Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="main-footer">
+      <div class="main-container">
+        <div class="main-footer__upper">
+          <div class="main-footer__row main-footer__row-1">
+            <h2 class="heading heading-sm main-footer__heading-sm"><span>Social</span></h2>
+            <div class="main-footer__social-cont">
+              <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/borodooovitsyn" aria-label="LinkedIn">
+                <img class="main-footer__icon" src="./assets/png/linkedin-ico.png" alt="LinkedIn" />
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://github.com/borodovitsyn" aria-label="GitHub">
+                <img class="main-footer__icon" src="./assets/png/github-ico.png" alt="GitHub" />
+              </a>
+              <a target="_blank" rel="noreferrer" href="mailto:aba262@sfu.ca" aria-label="Email">
+                <img class="main-footer__icon" src="./assets/png/yt-ico.png" alt="Email Icon" />
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://twitter.com" aria-label="Twitter">
+                <img class="main-footer__icon" src="./assets/png/twitter-ico.png" alt="Twitter/X" />
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://instagram.com" aria-label="Instagram">
+                <img class="main-footer__icon main-footer__icon--mr-none" src="./assets/png/insta-ico.png" alt="Instagram" />
+              </a>
+            </div>
+          </div>
+          <div class="main-footer__row main-footer__row-2">
+            <h4 class="heading heading-sm text-lt">Artyom Borodovitsyn</h4>
+            <p class="main-footer__short-desc">
+              Software developer in Vancouver — Unity multiplayer, AI/ML, and pragmatic backend work. SFU Computing Science.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./index.js"></script>
+  </body>
+</html>

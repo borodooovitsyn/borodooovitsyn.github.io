@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Case Study: Bottle Detection AI</title>
+    <meta name="description" content="Case study page of Bottle Detection AI project" />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header__content">
+        <div class="header__logo-container">
+          <div class="header__logo-img-cont">
+            <img
+              src="./assets/jpeg/avatar.jpeg"
+              alt="Artyom Borodovitsyn Avatar"
+              class="header__logo-img"
+            />
+          </div>
+          <span class="header__logo-sub">Artyom Borodovitsyn</span>
+        </div>
+        <div class="header__main">
+          <ul class="header__links">
+            <li class="header__link-wrapper"><a href="./index.html" class="header__link"> Home </a></li>
+            <li class="header__link-wrapper"><a href="./index.html#about" class="header__link"> About </a></li>
+            <li class="header__link-wrapper"><a href="./index.html#projects" class="header__link"> Projects </a></li>
+            <li class="header__link-wrapper"><a href="./index.html#experience" class="header__link"> Experience </a></li>
+            <li class="header__link-wrapper"><a href="./index.html#contact" class="header__link"> Contact </a></li>
+          </ul>
+          <div class="header__main-ham-menu-cont">
+            <img src="./assets/svg/ham-menu.svg" alt="hamburger menu" class="header__main-ham-menu" />
+            <img src="./assets/svg/ham-menu-close.svg" alt="hamburger menu close" class="header__main-ham-menu-close d-none" />
+          </div>
+        </div>
+      </div>
+      <div class="header__sm-menu">
+        <div class="header__sm-menu-content">
+          <ul class="header__sm-menu-links">
+            <li class="header__sm-menu-link"><a href="./index.html"> Home </a></li>
+            <li class="header__sm-menu-link"><a href="./index.html#about"> About </a></li>
+            <li class="header__sm-menu-link"><a href="./index.html#projects"> Projects </a></li>
+            <li class="header__sm-menu-link"><a href="./index.html#contact"> Contact </a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- Project Hero -->
+    <section class="project-cs-hero">
+      <div class="project-cs-hero__content">
+        <h1 class="heading-primary">Bottle Detection AI</h1>
+        <div class="project-cs-hero__info">
+          <p class="text-primary">
+            Deep learning–powered computer vision system trained to detect and classify bottles in real time.
+            Built using <strong>YOLOv8</strong>, <strong>PyTorch</strong>, and <strong>OpenCV</strong>, and deployed as an interactive web demo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="project-details">
+      <div class="main-container">
+        <div class="project-details__content">
+
+          <!-- Mockup -->
+          <div class="device">
+            <img
+              src="./assets/jpeg/project-mockup-example.jpeg"
+              alt="Laptop frame"
+              class="device__frame"
+            />
+            <img
+              class="device__screen"
+              src="./assets/png/bottle-demo.png"
+              alt="Bottle Detection Demo"
+            />
+          </div>
+
+          <div class="project-details__content-main">
+            <!-- Overview -->
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">Project Overview</h3>
+              <p class="project-details__desc-para">
+                The <strong>Bottle Detection AI</strong> identifies bottles from live webcam footage or uploaded images.
+                Trained on a custom dataset of <strong>plastic</strong>, <strong>glass</strong>, and <strong>metal</strong> bottles,
+                it achieves high precision through YOLOv8 fine-tuning.
+              </p>
+              <p class="project-details__desc-para">
+                The model is exported to <strong>ONNX</strong> format and runs entirely client-side in the browser using
+                <strong>ONNX Runtime Web</strong>, enabling real-time detection without backend servers.
+              </p>
+              <p class="project-details__desc-para">
+                The project demonstrates how deep learning models can be integrated into lightweight web experiences
+                for sustainability applications such as recycling automation and waste sorting.
+              </p>
+            </div>
+
+            <!-- Tools -->
+            <div class="project-details__tools-used">
+              <h3 class="project-details__content-title">Tools Used</h3>
+              <div class="skills">
+                <div class="skills__skill">Python</div>
+                <div class="skills__skill">YOLOv8</div>
+                <div class="skills__skill">PyTorch</div>
+                <div class="skills__skill">OpenCV</div>
+                <div class="skills__skill">ONNX Runtime Web</div>
+                <div class="skills__skill">JavaScript</div>
+                <div class="skills__skill">HTML/CSS</div>
+              </div>
+            </div>
+
+            <!-- Features -->
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">Key Features</h3>
+              <ul class="project-details__desc-para">
+                <li>🧠 <strong>Real-time detection</strong> using YOLOv8 and webcam input</li>
+                <li>📦 <strong>Client-side inference</strong> — no backend required</li>
+                <li>🌐 <strong>Lightweight web integration</strong> built with vanilla JS</li>
+                <li>📊 <strong>Dataset training</strong> with data augmentation</li>
+              </ul>
+            </div>
+
+            <!-- Highlights -->
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">Development Highlights</h3>
+              <ul class="project-details__desc-para">
+                <li>- Trained YOLOv8 on 3,000+ labeled bottle images with augmentation.</li>
+                <li>- Converted <code>best.pt</code> model to ONNX for browser inference.</li>
+                <li>- Integrated ONNX Runtime Web for real-time object detection.</li>
+                <li>- Added custom overlay drawing and class confidence display.</li>
+              </ul>
+            </div>
+
+            <!-- Links -->
+            <div class="project-details__links">
+              <h3 class="project-details__content-title">See Live</h3>
+              <a
+                href="https://github.com/borodooovitsyn/bottle-detection"
+                class="btn btn--med btn--theme-inv project-details__links-btn"
+                target="_blank"
+              >
+                Source Code
+            </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="main-container">
+        <div class="main-footer__upper">
+          <div class="main-footer__row main-footer__row-1">
+            <h2 class="heading heading-sm main-footer__heading-sm"><span>Social</span></h2>
+            <div class="main-footer__social-cont">
+              <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/borodooovitsyn" aria-label="LinkedIn">
+                <img class="main-footer__icon" src="./assets/png/linkedin-ico.png" alt="LinkedIn" />
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://github.com/borodovitsyn" aria-label="GitHub">
+                <img class="main-footer__icon" src="./assets/png/github-ico.png" alt="GitHub" />
+              </a>
+              <a target="_blank" rel="noreferrer" href="mailto:aba262@sfu.ca" aria-label="Email">
+                <img class="main-footer__icon" src="./assets/png/yt-ico.png" alt="Email Icon" />
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://twitter.com" aria-label="Twitter">
+                <img class="main-footer__icon" src="./assets/png/twitter-ico.png" alt="Twitter/X" />
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://instagram.com" aria-label="Instagram">
+                <img class="main-footer__icon main-footer__icon--mr-none" src="./assets/png/insta-ico.png" alt="Instagram" />
+              </a>
+            </div>
+          </div>
+          <div class="main-footer__row main-footer__row-2">
+            <h4 class="heading heading-sm text-lt">Artyom Borodovitsyn</h4>
+            <p class="main-footer__short-desc">
+              Software developer in Vancouver — Unity multiplayer, AI/ML, and pragmatic backend work. SFU Computing Science.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./index.js"></script>
+  </body>
+</html>

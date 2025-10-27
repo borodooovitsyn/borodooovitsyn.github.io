@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Case Study of AI Productivity Assistant</title>
+    <meta name="description" content="Case study page of AI Productivity Assistant built with FastAPI and Uvicorn" />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header__content">
+        <div class="header__logo-container">
+          <div class="header__logo-img-cont">
+            <img
+              src="./assets/jpeg/avatar.jpeg"
+              alt="Artyom Borodovitsyn Logo"
+              class="header__logo-img"
+            />
+          </div>
+          <span class="header__logo-sub">Artyom Borodovitsyn</span>
+        </div>
+        <div class="header__main">
+          <ul class="header__links">
+            <li class="header__link-wrapper"><a href="./index.html" class="header__link">Home</a></li>
+            <li class="header__link-wrapper"><a href="./index.html#about" class="header__link">About</a></li>
+            <li class="header__link-wrapper"><a href="./index.html#projects" class="header__link">Projects</a></li>
+            <li class="header__link-wrapper"><a href="./index.html#experience" class="header__link">Experience</a></li>
+            <li class="header__link-wrapper"><a href="./index.html#contact" class="header__link">Contact</a></li>
+          </ul>
+          <div class="header__main-ham-menu-cont">
+            <img src="./assets/svg/ham-menu.svg" alt="hamburger menu" class="header__main-ham-menu" />
+            <img src="./assets/svg/ham-menu-close.svg" alt="hamburger menu close" class="header__main-ham-menu-close d-none" />
+          </div>
+        </div>
+      </div>
+
+      <div class="header__sm-menu">
+        <div class="header__sm-menu-content">
+          <ul class="header__sm-menu-links">
+            <li class="header__sm-menu-link"><a href="./index.html">Home</a></li>
+            <li class="header__sm-menu-link"><a href="./index.html#about">About</a></li>
+            <li class="header__sm-menu-link"><a href="./index.html#projects">Projects</a></li>
+            <li class="header__sm-menu-link"><a href="./index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <section class="project-cs-hero">
+      <div class="project-cs-hero__content">
+        <h1 class="heading-primary">AI Productivity Assistant</h1>
+        <div class="project-cs-hero__info">
+          <p class="text-primary">
+            A backend system built with <strong>Python, FastAPI, and Uvicorn</strong> that integrates multiple productivity APIs — 
+            OpenAI, Notion, Google Calendar, and more — into one intelligent assistant. 
+            Designed to automate daily workflows through natural language prompts and smart task orchestration.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-details">
+      <div class="main-container">
+        <div class="project-details__content">
+            <!-- Laptop mockup showing a Swagger screenshot -->
+            <div class="device" id="swagger-device">
+              <img src="./assets/jpeg/project-mockup-example.jpeg" alt="Laptop frame" class="device__frame" />
+              <!-- Main screen: start with the first screenshot -->
+              <img
+                class="device__screen"
+                id="swagger-screen"
+                src="./assets/png/ai-assistant-interface.png"
+                alt="Swagger UI – Overview"
+              />
+            </div>
+
+            <!-- Thumbnails -->
+            <div class="api-docs-gallery" aria-label="Swagger screenshots">
+              <img
+                class="api-docs-thumb api-docs-thumb--active"
+                src="./assets/png/docs1.png"
+                data-full="./assets/screens/api-docs-1.png"
+                alt="Overview"
+              />
+              <img
+                class="api-docs-thumb"
+                src="./assets/png/docs2.png"
+                data-full="./assets/screens/api-docs-2.png"
+                alt="Mail endpoints"
+              />
+            </div>
+
+
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">Core Features</h3>
+              <ul class="project-details__desc-para">
+                <li><strong>Unified API Gateway</strong> – Integrates multiple external services under one schema.</li>
+                <li><strong>Task Automation</strong> – Automatically creates and syncs tasks across tools like Calendars, Mail services and social media.</li>
+                <li><strong>Event Scheduling</strong> – Connects with Google Calendar for meeting and reminder management.</li>
+                <li><strong>Summarization Engine</strong> – Uses OpenAI API to summarize long text inputs or meeting notes.</li>
+                <li><strong>Async API Design</strong> – Built entirely asynchronous for speed and scalability.</li>
+              </ul>
+            </div>
+
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">Development Highlights</h3>
+              <ul class="project-details__desc-para">
+                <li>- Designed a modular routes with separate endpoints for AI, scheduling, and data sync.</li>
+                <li>- Implemented dependency injection using FastAPI’s built-in dependency system.</li>
+                <li>- Configured environment-based API key management.</li>
+                <li>- Integrated async requests with retry handling for external APIs and logging via Python’s logging module.</li>
+              </ul>
+            </div>
+
+            <div class="project-details__links">
+              <h3 class="project-details__content-title">See More</h3>
+              <a 
+                href="https://github.com/borodooovitsyn/ai-assitant"
+                class="btn btn--med btn--theme-inv project-details__links-btn"
+                target="_blank"
+              >
+                GitHub Repo
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="main-footer">
+      <div class="main-container">
+        <div class="main-footer__upper">
+          <div class="main-footer__row main-footer__row-1">
+            <h2 class="heading heading-sm main-footer__heading-sm"><span>Social</span></h2>
+            <div class="main-footer__social-cont">
+              <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/borodooovitsyn">
+                <img class="main-footer__icon" src="./assets/png/linkedin-ico.png" alt="LinkedIn" />
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://github.com/borodovitsyn">
+                <img class="main-footer__icon" src="./assets/png/github-ico.png" alt="GitHub" />
+              </a>
+              <a target="_blank" rel="noreferrer" href="mailto:aba262@sfu.ca">
+                <img class="main-footer__icon" src="./assets/png/yt-ico.png" alt="Email" />
+              </a>
+            </div>
+          </div>
+          <div class="main-footer__row main-footer__row-2">
+            <h4 class="heading heading-sm text-lt">Artyom Borodovitsyn</h4>
+            <p class="main-footer__short-desc">
+              Software Developer specializing in backend systems, AI automation, and API integrations.
+              Focused on building intelligent, high-performance tools that enhance productivity.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
