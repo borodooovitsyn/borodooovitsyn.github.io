@@ -1,3 +1,25 @@
+<!--
+  SCREENSHOT WORKFLOW (all 6 case studies use ./assets/png/<name>.png, 1200-1600px wide, 16:10-ish):
+  1. Run the app locally (see each repo's README for the exact command).
+  2. Get it into a clean, representative state — no debug overlays, no lorem-ipsum data,
+     no empty states. Prefer the moment that best explains what the project does at a glance.
+  3. Capture:
+     - macOS: Cmd+Shift+4, drag to select just the app window (no browser chrome/desktop).
+       For a specific window: Cmd+Shift+4 then Space, then click the window.
+     - Browser-based UI (Swagger, web app): use the browser's device toolbar to fix a clean
+       viewport size before capturing, or a headless screenshot tool if you have one installed.
+     - Mobile (TextMeCash): iOS Simulator > Cmd+S saves a PNG straight to the Desktop, no crop needed.
+  4. Crop tight to the content — no menu bars, no surrounding desktop.
+  5. Save as PNG (not JPEG, text/UI stays crisp) into ./assets/png/ using these exact names,
+     which are already wired into each case-study page:
+       - signals-dashboard.png       (project-signals.html)      — Qt window or Rich terminal mid-scan
+       - textmecash-chat.png         (project-textmecash.html)   — chat screen with a payment bubble, or wallet screen
+       - bottle-demo.png             (project-bottle.html)       — webcam window with bounding boxes + FPS visible
+       - ai-assistant-interface.png  (project-productivity.html) — FastAPI /docs Swagger UI
+       - hex_logo.png                (project-horizon.html)      — currently the logo; swap for real gameplay footage
+       Vault Escape already uses a real video (./assets/mp4/vaultescapedemo.mp4), no screenshot needed.
+  6. Just overwrite the file at that path — no HTML changes needed, the pages already reference these names.
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,7 +34,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -88,16 +110,18 @@
 
     <section class="home-hero">
       <div class="home-hero__content">
-        <h1 class="heading-primary">Hey, I’m Artyom Borodovitsyn</h1>
+        <h1 class="heading-primary">Artyom Borodovitsyn</h1>
         <div class="home-hero__info">
           <p class="text-primary">
-            I build things that move the needle: server-auth <strong>Unity</strong> multiplayer,
-            scrappy <strong>AI/ML</strong> experiments, and tidy backends in <strong>C++/C#/Python</strong>.
-            Based in Vancouver, studying Computing Science at SFU.
+            I build <strong>real-time multiplayer systems</strong>, train
+            <strong>machine learning models</strong>, and ship <strong>full-stack products</strong>
+            end to end — from game networking to mobile apps to backend infrastructure.
+            Computing Science student at SFU, based in Vancouver.
           </p>
         </div>
         <div class="home-hero__cta">
-          <a href="./#projects" class="btn btn--bg">Projects</a>
+          <a href="./#projects" class="btn btn--bg">View Projects</a>
+          <a href="./#contact" class="btn btn--bg btn--theme-inv">Get in Touch</a>
         </div>
       </div>
       <div class="home-hero__socials">
@@ -112,18 +136,8 @@
           </a>
         </div>
         <div class="home-hero__social">
-          <a href="mailto:aba262@sfu.ca" class="home-hero__social-icon-link" aria-label="Email">
+          <a href="mailto:aba262@sfu.ca" class="home-hero__social-icon-link home-hero__social-icon-link--bd-none" aria-label="Email">
             <img src="./assets/png/yt-ico.png" alt="Email Icon" class="home-hero__social-icon" />
-          </a>
-        </div>
-        <div class="home-hero__social">
-          <a href="https://twitter.com" target="_blank" rel="noreferrer" class="home-hero__social-icon-link" aria-label="Twitter">
-            <img src="./assets/png/twitter-ico.png" alt="Twitter/X" class="home-hero__social-icon" />
-          </a>
-        </div>
-        <div class="home-hero__social">
-          <a href="https://instagram.com" target="_blank" rel="noreferrer" class="home-hero__social-icon-link home-hero__social-icon-link--bd-none" aria-label="Instagram">
-            <img src="./assets/png/insta-ico.png" alt="Instagram" class="home-hero__social-icon" />
           </a>
         </div>
       </div>
@@ -135,61 +149,105 @@
     <section id="about" class="about sec-pad">
       <div class="main-container">
         <h2 class="heading heading-sec heading-sec__mb-med">
-          <span class="heading-sec__main">About Me</span>
+          <span class="eyebrow">About</span>
+          <span class="heading-sec__main">Systems-minded, outcome-driven</span>
           <span class="heading-sec__sub">
-            I like working in a team, fast feedback, and shipping. I’ve presented infrastructure
-            options to enterprise clients, tuned student-facing websites, and taught robotics
-            workshops for 100+ learners. Current focus: a Unity-based extraction game with
-            clean networking, and ML projects where metrics actually matter.
+            I've presented infrastructure options to enterprise clients, lifted a student
+            org's site traffic 35% through UX work, and taught robotics to 100+ kids.
+            Right now I'm building server-authoritative multiplayer in Unity and running
+            ML experiments where the metrics have to hold up.
           </span>
         </h2>
         <div class="about__content">
           <div class="about__content-main">
-            <h3 class="about__content-title">Get to know me!</h3>
+            <h3 class="about__content-title">Get to know me</h3>
             <div class="about__content-details">
               <p class="about__content-details-para">
-                I’m <strong>Artyom</strong>, a <strong>software developer</strong> in Vancouver and a Computing Science student at
-                <strong>Simon Fraser University</strong>. I enjoy building multiplayer systems, exploring
-                ML, emerged into game developement and keeping code change-friendly.
+                I'm <strong>Artyom</strong>, a <strong>software developer</strong> in Vancouver and a Computing Science student at
+                <strong>Simon Fraser University</strong>. I like building multiplayer systems, running
+                ML experiments, and keeping codebases easy to change six months later.
               </p>
               <p class="about__content-details-para">
-                What I value: measurable outcomes, defined goald, and steady iteration. If you’re
-                hiring for Unity networking, ML pipelines, or pragmatic backend work,
-                <strong>we should talk!</strong>
+                What I optimize for: measurable outcomes, clearly defined goals, and steady iteration
+                over big rewrites. If you're hiring for Unity networking, ML pipelines, or pragmatic
+                backend work, <strong>let's talk.</strong>
               </p>
             </div>
             <a href="./#contact" class="btn btn--med btn--theme dynamicBgClr">Contact</a>
           </div>
           <div class="about__content-skills">
             <h3 class="about__content-title">My Skills</h3>
-            <div class="skills">
-              <!-- Core Languages -->
-              <div class="skills__skill">C</div>
-              <div class="skills__skill">C++</div>
-              <div class="skills__skill">C#</div>
-              <div class="skills__skill">Java</div>
-              <div class="skills__skill">Python</div>
-              <div class="skills__skill">SQL</div>
-              <div class="skills__skill">R</div>
-              <div class="skills__skill">HTML/CSS</div>
-              <!-- Frameworks/Tools -->
-              <div class="skills__skill">Unity</div>
-              <div class="skills__skill">PyTorch</div>
-              <div class="skills__skill">NumPy</div>
-              <div class="skills__skill">Pandas</div>
-              <div class="skills__skill">MySQL</div>
-              <div class="skills__skill">Docker</div>
-              <div class="skills__skill">Azure</div>
-              <div class="skills__skill">Git</div>
-              <div class="skills__skill">JUnit</div>
-              <div class="skills__skill">Blender</div>
-              <!-- Concepts -->
-              <div class="skills__skill">Multithreading</div>
-              <div class="skills__skill">Data Structures</div>
-              <div class="skills__skill">Algorithms</div>
-              <div class="skills__skill">OOP</div>
-              <div class="skills__skill">Optimization</div>
-              <div class="skills__skill">Numerical Methods</div>
+
+            <div class="skills-group">
+              <span class="skills-group__label">Languages</span>
+              <div class="skills">
+                <div class="skills__skill">C</div>
+                <div class="skills__skill">C++</div>
+                <div class="skills__skill">C#</div>
+                <div class="skills__skill">Java</div>
+                <div class="skills__skill">Python</div>
+                <div class="skills__skill">Dart</div>
+                <div class="skills__skill">JavaScript</div>
+                <div class="skills__skill">SQL</div>
+                <div class="skills__skill">R</div>
+                <div class="skills__skill">HTML/CSS</div>
+              </div>
+            </div>
+
+            <div class="skills-group">
+              <span class="skills-group__label">Frameworks &amp; Tools</span>
+              <div class="skills">
+                <div class="skills__skill">Unity</div>
+                <div class="skills__skill">Flutter</div>
+                <div class="skills__skill">Node.js</div>
+                <div class="skills__skill">Django</div>
+                <div class="skills__skill">Django Channels</div>
+                <div class="skills__skill">FastAPI</div>
+                <div class="skills__skill">.NET</div>
+                <div class="skills__skill">REST APIs</div>
+                <div class="skills__skill">PyTorch</div>
+                <div class="skills__skill">YOLOv8</div>
+                <div class="skills__skill">NumPy</div>
+                <div class="skills__skill">Pandas</div>
+                <div class="skills__skill">OpenCV</div>
+                <div class="skills__skill">SQLAlchemy</div>
+                <div class="skills__skill">JUnit</div>
+                <div class="skills__skill">Blender</div>
+              </div>
+            </div>
+
+            <div class="skills-group">
+              <span class="skills-group__label">Infra &amp; Data</span>
+              <div class="skills">
+                <div class="skills__skill">Docker</div>
+                <div class="skills__skill">Azure</div>
+                <div class="skills__skill">Linux</div>
+                <div class="skills__skill">PostgreSQL</div>
+                <div class="skills__skill">MySQL</div>
+                <div class="skills__skill">SQL Server</div>
+                <div class="skills__skill">Redis</div>
+                <div class="skills__skill">Celery</div>
+                <div class="skills__skill">WebRTC</div>
+                <div class="skills__skill">WebSockets</div>
+                <div class="skills__skill">CI/CD</div>
+                <div class="skills__skill">Git</div>
+              </div>
+            </div>
+
+            <div class="skills-group">
+              <span class="skills-group__label">Concepts</span>
+              <div class="skills">
+                <div class="skills__skill">Multithreading</div>
+                <div class="skills__skill">Data Structures</div>
+                <div class="skills__skill">Operating Systems</div>
+                <div class="skills__skill">Computer Networks</div>
+                <div class="skills__skill">Database Design</div>
+                <div class="skills__skill">Algorithms</div>
+                <div class="skills__skill">OOP</div>
+                <div class="skills__skill">Optimization</div>
+                <div class="skills__skill">Numerical Methods</div>
+                <div class="skills__skill">Business Analysis</div>
+              </div>
             </div>
           </div>
         </div>
@@ -199,15 +257,66 @@
     <section id="projects" class="projects sec-pad">
       <div class="main-container">
         <h2 class="heading heading-sec heading-sec__mb-bg">
-          <span class="heading-sec__main">Projects</span>
+          <span class="eyebrow">Projects</span>
+          <span class="heading-sec__main">Things I've shipped</span>
           <span class="heading-sec__sub">
-            A few things I’ve shipped or explored recently.
+            Multiplayer systems, computer vision, and backend tools — built, tested, and used.
           </span>
         </h2>
-    
-        <div class="projects__content">
-          <!-- Project 1 -->
-          <div class="projects__row">
+
+        <div class="projects__content" data-reveal-group>
+          <!-- Signals -->
+          <div class="projects__row" data-reveal>
+            <div class="projects__row-img-cont">
+              <img
+                src="./assets/png/signals-logo.png"
+                alt="Signals Trading Console"
+                class="projects__row-img"
+                loading="lazy"
+              />
+            </div>
+            <div class="projects__row-content">
+              <span class="projects__row-index">PROJ_01 · PYTHON / ASYNCIO / QT</span>
+              <h3 class="projects__row-content-title">Signals Trading Console</h3>
+              <p class="projects__row-content-desc">
+                Async engine that scans Binance, Coinbase, and Kraken for cross-exchange, triangular, and futures-basis opportunities — depth-aware VWAP pricing, a live Qt dashboard, and a paper-trading engine to test strategies risk-free.
+              </p>
+              <a
+                href="./project-signals.html"
+                class="btn btn--med btn--theme dynamicBgClr"
+                target="_blank"
+                >Case Study</a
+              >
+            </div>
+          </div>
+
+          <!-- TextMeCash -->
+          <div class="projects__row" data-reveal>
+            <div class="projects__row-img-cont">
+              <img
+                src="./assets/png/textmecash-logo.png"
+                alt="TextMeCash"
+                class="projects__row-img"
+                loading="lazy"
+              />
+            </div>
+            <div class="projects__row-content">
+              <span class="projects__row-index">PROJ_02 · DJANGO / FLUTTER / E2EE</span>
+              <h3 class="projects__row-content-title">TextMeCash</h3>
+              <p class="projects__row-content-desc">
+                A messaging app with a built-in wallet: real-time chat over Django Channels, WebRTC calls, and Signal-protocol E2E encryption, plus peer-to-peer payment requests backed by a proper double-entry ledger.
+              </p>
+              <a
+                href="./project-textmecash.html"
+                class="btn btn--med btn--theme dynamicBgClr"
+                target="_blank"
+                >Case Study</a
+              >
+            </div>
+          </div>
+
+          <!-- Horizon Expedition -->
+          <div class="projects__row" data-reveal>
             <div class="projects__row-img-cont">
               <img
                 src="./assets/png/hex_logo.png"
@@ -217,7 +326,8 @@
               />
             </div>
             <div class="projects__row-content">
-              <h3 class="projects__row-content-title">Horizon Expedition — 3D Unity Multiplayer</h3>
+              <span class="projects__row-index">PROJ_03 · UNITY / C# / MIRROR</span>
+              <h3 class="projects__row-content-title">Horizon Expedition</h3>
               <p class="projects__row-content-desc">
                 Server-authoritative combat, synced inventory, and robust player state management. Led team practices and code reviews; reduced bugs by ~30% and sped up iteration.
               </p>
@@ -229,21 +339,22 @@
               >
             </div>
           </div>
-    
-          <!-- Project 2 -->
-          <div class="projects__row">
+
+          <!-- Bottle Detection AI -->
+          <div class="projects__row" data-reveal>
             <div class="projects__row-img-cont">
               <img
                 src="./assets/png/bottle-logo.png"
-                alt="Bottle Classification"
+                alt="Bottle Detection AI"
                 class="projects__row-img"
                 loading="lazy"
               />
             </div>
             <div class="projects__row-content">
-              <h3 class="projects__row-content-title">Handwriting Recognition — PyTorch</h3>
+              <span class="projects__row-index">PROJ_04 · YOLOV8 / OPENCV</span>
+              <h3 class="projects__row-content-title">Bottle Detection AI</h3>
               <p class="projects__row-content-desc">
-                Compact CNN trained on MNIST with a faster preprocessing pipeline; ~95% accuracy while cutting training time by ~40%. Clean experiment tracking and reproducibility.
+                YOLOv8 model trained to detect plastic bottles from live webcam video, with a custom dataset pipeline that mines negative samples from COCO to cut false positives.
               </p>
               <a
                 href="./project-bottle.html"
@@ -253,10 +364,9 @@
               >
             </div>
           </div>
-  
-    
-          <!-- Project 4 -->
-          <div class="projects__row">
+
+          <!-- AI Productivity Assistant -->
+          <div class="projects__row" data-reveal>
             <div class="projects__row-img-cont">
               <img
                 src="./assets/png/assistant-logo.png"
@@ -266,9 +376,10 @@
               />
             </div>
             <div class="projects__row-content">
-              <h3 class="projects__row-content-title">Productivity Assistant</h3>
+              <span class="projects__row-index">PROJ_05 · FASTAPI / PYTHON</span>
+              <h3 class="projects__row-content-title">AI Productivity Assistant</h3>
               <p class="projects__row-content-desc">
-                Quick capture, reminders, and focus timers in a tiny tool. Simple REST API with a lightweight database; designed for speed and minimal friction.
+                FastAPI backend that unifies Gmail, Outlook, Google Calendar, Slack, and Telegram behind one API, with OpenAI-powered summarization and automatic task creation from email.
               </p>
               <a
                 href="./project-productivity.html"
@@ -278,21 +389,22 @@
               >
             </div>
           </div>
-    
-          <!-- Project 6 -->
-          <div class="projects__row">
+
+          <!-- Vault Escape -->
+          <div class="projects__row" data-reveal>
             <div class="projects__row-img-cont">
               <img
                 src="./assets/png/vault_escape_logo.png"
-                alt="Vault Escape — 2D Java Runner"
+                alt="Vault Escape — 2D Java Stealth Game"
                 class="projects__row-img"
                 loading="lazy"
               />
             </div>
             <div class="projects__row-content">
+              <span class="projects__row-index">PROJ_06 · JAVA / SWING / JUNIT</span>
               <h3 class="projects__row-content-title">Vault Escape</h3>
               <p class="projects__row-content-desc">
-                2D runner built with Java (Swing) and tested with JUnit. Multiple levels and simple state management; built for clarity and maintainability.
+                Top-down Java Swing stealth game — patrolling guards, chase-AI dogs, and cameras stand between you and the vault. 22 JUnit test classes cover every entity and system.
               </p>
               <a
                 href="./project-vault.html"
@@ -307,81 +419,111 @@
     </section>
     
 
-    <section id="experience" class="projects sec-pad">
+    <section id="experience" class="experience sec-pad">
       <div class="main-container">
         <h2 class="heading heading-sec heading-sec__mb-bg">
-          <span class="heading-sec__main">Experience</span>
+          <span class="eyebrow">Experience</span>
+          <span class="heading-sec__main">Roles that shaped how I work</span>
           <span class="heading-sec__sub">
-            Roles where I shipped usable stuff, worked with teams, and learned fast.
+            Where I shipped usable stuff, worked with teams, and learned fast.
           </span>
         </h2>
-    
-        <div class="projects__content">
-          <!-- E-TRADE -->
-          <div class="projects__row">
-            <div class="projects__row-img-cont">
+
+        <div class="timeline" data-reveal-group>
+          <!-- Teck Resources -->
+          <div class="timeline__item" data-reveal>
+            <div class="timeline__logo-cont">
               <img
-                src="./assets/png/etrade_logo.png"
-                alt="E-TRADE"
-                class="projects__row-img"
+                src="./assets/png/teck_logo.png"
+                alt="Teck Resources"
+                class="timeline__logo"
                 loading="lazy"
               />
             </div>
-            <div class="projects__row-content">
-              <h3 class="projects__row-content-title">Software Engineer (Internship / Part-time)</h3>
-              <p class="projects__row-content-desc">
-                <strong>E-TRADE</strong> • Jan 2023 – Jan 2025<br/>
-                Presented tailored storage/server options that increased client engagement. Helped configure and
-                install secure on-prem infrastructure. Maintained internal web pages and fixed production bugs calmly.
+            <div class="timeline__content">
+              <h3 class="timeline__title">Mining Solutions Co-Op</h3>
+              <span class="timeline__meta">Teck Resources · Jan 2026 – Aug 2026</span>
+              <p class="timeline__desc">
+                Build and maintain engineering systems for drill &amp; blast, geology, and geotechnical
+                workflows — C# and JavaScript development, deployment, and testing. Provide IT support
+                across teams and contribute business analysis: requirements gathering, vendor coordination,
+                and process improvement.
               </p>
-              <div>
-                <span class="btn btn--med btn--theme dynamicBgClr" style="pointer-events:none;">Linux</span>
-                <span class="btn btn--med btn--theme dynamicBgClr" style="pointer-events:none;">Networking</span>
-                <span class="btn btn--med btn--theme dynamicBgClr" style="pointer-events:none;">Huawei HCSA</span>
+              <div class="timeline__tags">
+                <span class="skills__skill">C#</span>
+                <span class="skills__skill">.NET</span>
+                <span class="skills__skill">JavaScript</span>
+                <span class="skills__skill">SQL Server</span>
+                <span class="skills__skill">Business Analysis</span>
               </div>
             </div>
           </div>
-    
-          <!-- SFU MISA -->
-          <div class="projects__row">
-            <div class="projects__row-img-cont">
+
+          <!-- E-TRADE -->
+          <div class="timeline__item" data-reveal>
+            <div class="timeline__logo-cont">
               <img
-                src="./assets/jpeg/sfu_misa_logo.jpeg"
-                alt="SFU MISA"
-                class="projects__row-img"
+                src="./assets/png/etrade_logo.png"
+                alt="E-TRADE"
+                class="timeline__logo"
                 loading="lazy"
               />
             </div>
-            <div class="projects__row-content">
-              <h3 class="projects__row-content-title">Web Development Coordinator</h3>
-              <p class="projects__row-content-desc">
-                <strong>SFU MISA</strong> • Sep 2023 – May 2024<br/>
+            <div class="timeline__content">
+              <h3 class="timeline__title">Software Engineer <span class="timeline__title-sub">— Internship / Part-time</span></h3>
+              <span class="timeline__meta">E-TRADE · Jan 2023 – Jan 2025</span>
+              <p class="timeline__desc">
+                Presented tailored storage/server options that increased client engagement. Helped configure and
+                install secure on-prem infrastructure. Maintained internal web pages and fixed production bugs calmly.
+              </p>
+              <div class="timeline__tags">
+                <span class="skills__skill">Linux</span>
+                <span class="skills__skill">Networking</span>
+                <span class="skills__skill">Huawei HCSA</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SFU MISA -->
+          <div class="timeline__item" data-reveal>
+            <div class="timeline__logo-cont">
+              <img
+                src="./assets/jpeg/sfu_misa_logo.jpeg"
+                alt="SFU MISA"
+                class="timeline__logo"
+                loading="lazy"
+              />
+            </div>
+            <div class="timeline__content">
+              <h3 class="timeline__title">Web Development Coordinator</h3>
+              <span class="timeline__meta">SFU MISA · Sep 2023 – May 2024</span>
+              <p class="timeline__desc">
                 Lifted site traffic ~35% with UX/content improvements. Coordinated student tech events and kept
                 volunteer workstreams on schedule. Wrote short, useful updates between execs and builders.
               </p>
             </div>
           </div>
-    
+
           <!-- Cloverdale Robotics -->
-          <div class="projects__row">
-            <div class="projects__row-img-cont">
+          <div class="timeline__item" data-reveal>
+            <div class="timeline__logo-cont">
               <img
                 src="./assets/jpeg/cloverdale_logo.jpeg"
                 alt="Cloverdale Robotics"
-                class="projects__row-img"
+                class="timeline__logo"
                 loading="lazy"
               />
             </div>
-            <div class="projects__row-content">
-              <h3 class="projects__row-content-title">Robotics & Programming Teacher</h3>
-              <p class="projects__row-content-desc">
-                <strong>Cloverdale Robotics</strong> • Sep 2023 – Jan 2024<br/>
+            <div class="timeline__content">
+              <h3 class="timeline__title">Robotics &amp; Programming Teacher</h3>
+              <span class="timeline__meta">Cloverdale Robotics · Sep 2023 – Jan 2024</span>
+              <p class="timeline__desc">
                 Ran hands-on workshops for 100+ students (ages 10–15) using block-based coding. Built approachable
                 lesson plans and tailored help to each learner.
               </p>
-              <div>
-                <span class="btn btn--med btn--theme dynamicBgClr" style="pointer-events:none;">Robotics</span>
-                <span class="btn btn--med btn--theme dynamicBgClr" style="pointer-events:none;">Education</span>
+              <div class="timeline__tags">
+                <span class="skills__skill">Robotics</span>
+                <span class="skills__skill">Education</span>
               </div>
             </div>
           </div>
@@ -393,9 +535,9 @@
     <section id="contact" class="contact sec-pad dynamicBg">
       <div class="main-container">
         <h2 class="heading heading-sec heading-sec__mb-med">
-          <span class="heading-sec__main heading-sec__main--lt">Contact</span>
+          <span class="eyebrow">Contact</span>
+          <span class="heading-sec__main heading-sec__main--lt">Get in touch</span>
           <span class="heading-sec__sub heading-sec__sub--lt">
-            Open to internships and part-time roles in Unity multiplayer, AI/ML, or backend.
             The fastest way to reach me is email.
           </span>
         </h2>
@@ -460,18 +602,12 @@
               <a target="_blank" rel="noreferrer" href="mailto:aba262@sfu.ca" aria-label="Email">
                 <img class="main-footer__icon" src="./assets/png/yt-ico.png" alt="Email Icon" />
               </a>
-              <a target="_blank" rel="noreferrer" href="https://twitter.com" aria-label="Twitter">
-                <img class="main-footer__icon" src="./assets/png/twitter-ico.png" alt="Twitter/X" />
-              </a>
-              <a target="_blank" rel="noreferrer" href="https://instagram.com" aria-label="Instagram">
-                <img class="main-footer__icon main-footer__icon--mr-none" src="./assets/png/insta-ico.png" alt="Instagram" />
-              </a>
             </div>
           </div>
           <div class="main-footer__row main-footer__row-2">
             <h4 class="heading heading-sm text-lt">Artyom Borodovitsyn</h4>
             <p class="main-footer__short-desc">
-              Software developer in Vancouver — Unity multiplayer, AI/ML, and pragmatic backend work. SFU Computing Science.
+              Software developer in Vancouver building real-time systems, applied ML, and full-stack products. SFU Computing Science.
             </p>
           </div>
         </div>

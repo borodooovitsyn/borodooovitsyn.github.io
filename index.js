@@ -36,3 +36,27 @@ const headerLogoConatiner = document.querySelector('.header__logo-container')
 headerLogoConatiner.addEventListener('click', () => {
   location.href = 'index.html'
 })
+
+// ---
+const revealEls = document.querySelectorAll('[data-reveal]')
+
+if (revealEls.length && 'IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          observer.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.15 }
+  )
+
+  revealEls.forEach((el, i) => {
+    el.style.transitionDelay = `${Math.min(i, 4) * 80}ms`
+    revealObserver.observe(el)
+  })
+} else {
+  revealEls.forEach((el) => el.classList.add('is-visible'))
+}

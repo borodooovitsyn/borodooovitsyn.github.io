@@ -1,14 +1,40 @@
+.skills-group {
+  margin-bottom: 2.8rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__label {
+    font-family: $fontMono;
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $textFaint;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+}
+
 .skills {
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
+
   &__skill {
-    padding: 1rem 2rem;
-    margin-bottom: 1.5rem;
-    margin-right: 1.5rem;
-    font-size: 1.6rem;
-    background: rgba(#999, 0.2);
+    padding: 0.8rem 1.6rem;
+    font-family: $fontMono;
+    font-size: 1.3rem;
+    background: $bgSurface;
+    border: 1px solid $borderHairline;
     border-radius: $commonBorderRadius;
-    font-weight: 600;
-    color: #777;
+    font-weight: 500;
+    color: $textMuted;
+    transition: border-color 0.25s, color 0.25s;
+
+    &:hover {
+      border-color: rgba($accent, 0.5);
+      color: $textPrimary;
+    }
   }
 }

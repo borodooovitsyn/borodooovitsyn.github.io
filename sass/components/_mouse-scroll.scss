@@ -1,19 +1,19 @@
 .mouse {
-  width: 25px;
-  height: 40px;
-  border: 2px solid #eee;
+  width: 24px;
+  height: 38px;
+  border: 1px solid $borderHairline;
   border-radius: 60px;
   position: relative;
   overflow: hidden;
   &::before {
     content: '';
-    width: 5px;
-    height: 5px;
+    width: 4px;
+    height: 4px;
     position: absolute;
     top: 7px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #eee;
+    background-color: $accent;
     border-radius: 50%;
     opacity: 1;
     animation: wheel 1.3s infinite;
@@ -24,13 +24,13 @@
 @keyframes wheel {
   to {
     opacity: 0;
-    top: 27px;
+    top: 26px;
   }
 }
 
 @-webkit-keyframes wheel {
   to {
     opacity: 0;
-    top: 27px;
+    top: 26px;
   }
 }

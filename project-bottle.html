@@ -4,15 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Case Study: Bottle Detection AI</title>
-    <meta name="description" content="Case study page of Bottle Detection AI project" />
+    <title>Bottle Detection AI — Case Study | Artyom Borodovitsyn</title>
+    <meta name="description" content="Case study: a YOLOv8 model trained to detect plastic bottles in real time from webcam video, with a custom-built training and dataset pipeline." />
 
     <link rel="stylesheet" href="css/style.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -59,11 +59,15 @@
     <!-- Project Hero -->
     <section class="project-cs-hero">
       <div class="project-cs-hero__content">
+        <div class="project-cs-hero__eyebrow">
+          <span class="eyebrow">Case Study / PROJ_04</span>
+        </div>
         <h1 class="heading-primary">Bottle Detection AI</h1>
         <div class="project-cs-hero__info">
           <p class="text-primary">
-            Deep learning–powered computer vision system trained to detect and classify bottles in real time.
-            Built using <strong>YOLOv8</strong>, <strong>PyTorch</strong>, and <strong>OpenCV</strong>, and deployed as an interactive web demo.
+            A <strong>YOLOv8</strong> model trained from scratch to detect plastic bottles in real time
+            from webcam video — including a custom dataset pipeline that mixes a labeled bottle dataset
+            with hard negatives mined from COCO.
           </p>
         </div>
       </div>
@@ -74,17 +78,13 @@
       <div class="main-container">
         <div class="project-details__content">
 
-          <!-- Mockup -->
+          <!-- SCREENSHOT SLOT: webcam detection window with bounding boxes + FPS overlay visible.
+               See screenshot capture instructions in index.html comments / README. -->
           <div class="device">
-            <img
-              src="./assets/jpeg/project-mockup-example.jpeg"
-              alt="Laptop frame"
-              class="device__frame"
-            />
             <img
               class="device__screen"
               src="./assets/png/bottle-demo.png"
-              alt="Bottle Detection Demo"
+              alt="Bottle Detection AI — live webcam detection with bounding boxes"
             />
           </div>
 
@@ -93,17 +93,23 @@
             <div class="project-details__desc">
               <h3 class="project-details__content-title">Project Overview</h3>
               <p class="project-details__desc-para">
-                The <strong>Bottle Detection AI</strong> identifies bottles from live webcam footage or uploaded images.
-                Trained on a custom dataset of <strong>plastic</strong>, <strong>glass</strong>, and <strong>metal</strong> bottles,
-                it achieves high precision through YOLOv8 fine-tuning.
+                <strong>Bottle Detection AI</strong> fine-tunes a <strong>YOLOv8</strong> nano model to
+                detect plastic bottles from live webcam footage. The interesting part isn't the model
+                architecture — it's the <strong>dataset pipeline</strong>: a labeled Kaggle bottle dataset
+                is combined with automatically downloaded negative samples from <strong>COCO 2017</strong>
+                so the model learns what a bottle <em>isn't</em>, not just what it is.
               </p>
               <p class="project-details__desc-para">
-                The model is exported to <strong>ONNX</strong> format and runs entirely client-side in the browser using
-                <strong>ONNX Runtime Web</strong>, enabling real-time detection without backend servers.
+                A dataset sanity-check pass (<code>deep_check_and_fix.py</code>, <code>check_dataset.py</code>)
+                validates label files against their images before training even starts — catching
+                mismatched classes, malformed bounding boxes, and orphaned label files that would
+                otherwise silently corrupt a training run.
               </p>
               <p class="project-details__desc-para">
-                The project demonstrates how deep learning models can be integrated into lightweight web experiences
-                for sustainability applications such as recycling automation and waste sorting.
+                Training runs through a configurable CLI (<code>train_bottle_yolo.py</code>) with its own
+                hyperparameter file, epoch/batch/image-size controls, and optional label visualization for
+                debugging. The trained weights then drive a real-time <strong>OpenCV</strong> webcam loop
+                that draws bounding boxes and a running FPS counter directly on the video feed.
               </p>
             </div>
 
@@ -113,22 +119,36 @@
               <div class="skills">
                 <div class="skills__skill">Python</div>
                 <div class="skills__skill">YOLOv8</div>
-                <div class="skills__skill">PyTorch</div>
+                <div class="skills__skill">Ultralytics</div>
                 <div class="skills__skill">OpenCV</div>
-                <div class="skills__skill">ONNX Runtime Web</div>
-                <div class="skills__skill">JavaScript</div>
-                <div class="skills__skill">HTML/CSS</div>
+                <div class="skills__skill">PyTorch</div>
               </div>
+            </div>
+
+            <!-- Code snippet -->
+            <div class="code-block">
+              <span class="code-block__label">webcam_bottle_detect.py</span>
+              <pre><code>r = model.predict(frame, conf=a.conf, imgsz=a.imgsz, device=a.device, verbose=False)[0]
+times.append(time.time() - t0)
+fps = 1.0 / (sum(times)/len(times)) if times else 0.0
+
+for b in r.boxes:
+    x1, y1, x2, y2 = map(int, b.xyxy[0].tolist())
+    conf = float(b.conf[0].item())
+    cv2.rectangle(annotated, (x1, y1), (x2, y2), (37, 255, 225), 2)
+    cv2.putText(annotated, f"{name} {conf:.2f}", (x1, y1 - 6),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.6, (37, 255, 225), 2, cv2.LINE_AA)</code></pre>
             </div>
 
             <!-- Features -->
             <div class="project-details__desc">
               <h3 class="project-details__content-title">Key Features</h3>
               <ul class="project-details__desc-para">
-                <li>🧠 <strong>Real-time detection</strong> using YOLOv8 and webcam input</li>
-                <li>📦 <strong>Client-side inference</strong> — no backend required</li>
-                <li>🌐 <strong>Lightweight web integration</strong> built with vanilla JS</li>
-                <li>📊 <strong>Dataset training</strong> with data augmentation</li>
+                <li><strong>Real-Time Detection</strong> — Live webcam inference with bounding boxes and a rolling FPS counter.</li>
+                <li><strong>Negative Mining</strong> — Automatically pulls non-bottle images from COCO 2017 so the model learns true negatives.</li>
+                <li><strong>Dataset Validation</strong> — Pre-training sanity checks catch bad labels before they corrupt a run.</li>
+                <li><strong>Configurable Training</strong> — CLI-driven training with custom hyperparameters, epochs, and image size.</li>
+                <li><strong>Optional Recording</strong> — Annotated detection sessions can be saved directly to video.</li>
               </ul>
             </div>
 
@@ -136,24 +156,13 @@
             <div class="project-details__desc">
               <h3 class="project-details__content-title">Development Highlights</h3>
               <ul class="project-details__desc-para">
-                <li>- Trained YOLOv8 on 3,000+ labeled bottle images with augmentation.</li>
-                <li>- Converted <code>best.pt</code> model to ONNX for browser inference.</li>
-                <li>- Integrated ONNX Runtime Web for real-time object detection.</li>
-                <li>- Added custom overlay drawing and class confidence display.</li>
+                <li>- Built a dataset pipeline mixing a labeled Kaggle bottle dataset with mined COCO negatives.</li>
+                <li>- Wrote pre-training dataset validation to catch label/image mismatches early.</li>
+                <li>- Tuned YOLOv8 hyperparameters via a dedicated config file rather than defaults.</li>
+                <li>- Built a real-time OpenCV inference loop with on-frame FPS and confidence overlays.</li>
               </ul>
             </div>
 
-            <!-- Links -->
-            <div class="project-details__links">
-              <h3 class="project-details__content-title">See Live</h3>
-              <a
-                href="https://github.com/borodooovitsyn/bottle-detection"
-                class="btn btn--med btn--theme-inv project-details__links-btn"
-                target="_blank"
-              >
-                Source Code
-            </a>
-            </div>
           </div>
         </div>
       </div>
@@ -175,18 +184,12 @@
               <a target="_blank" rel="noreferrer" href="mailto:aba262@sfu.ca" aria-label="Email">
                 <img class="main-footer__icon" src="./assets/png/yt-ico.png" alt="Email Icon" />
               </a>
-              <a target="_blank" rel="noreferrer" href="https://twitter.com" aria-label="Twitter">
-                <img class="main-footer__icon" src="./assets/png/twitter-ico.png" alt="Twitter/X" />
-              </a>
-              <a target="_blank" rel="noreferrer" href="https://instagram.com" aria-label="Instagram">
-                <img class="main-footer__icon main-footer__icon--mr-none" src="./assets/png/insta-ico.png" alt="Instagram" />
-              </a>
             </div>
           </div>
           <div class="main-footer__row main-footer__row-2">
             <h4 class="heading heading-sm text-lt">Artyom Borodovitsyn</h4>
             <p class="main-footer__short-desc">
-              Software developer in Vancouver — Unity multiplayer, AI/ML, and pragmatic backend work. SFU Computing Science.
+              Software developer in Vancouver building real-time systems, applied ML, and full-stack products. SFU Computing Science.
             </p>
           </div>
         </div>

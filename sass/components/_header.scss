@@ -2,15 +2,17 @@
   position: fixed;
   width: 100%;
   z-index: 1000;
-  background: #000;
-  background: #fff;
-  box-shadow: 0 10px 100px rgba(0, 0, 0, 0.1);
+  top: 0;
+  background: rgba($bgPrimary, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid $borderHairline;
 
   &__content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 5rem;
+    padding: 0 5rem;
     @include respond(tab-port) {
       padding: 0 2rem;
     }
@@ -20,24 +22,26 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-    color: #333;
-    transition: color .3s;
+    color: $textPrimary;
+    transition: color 0.3s;
+    padding: 1.6rem 0;
 
     &:hover {
-      color: $themeClrPrimary;
+      color: $accent;
     }
   }
   &__logo-img-cont {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50px;
+    width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 50%;
     overflow: hidden;
-    margin-right: 1.5rem;
-    background: $themeClrPrimary;
+    margin-right: 1.4rem;
+    background: $accent;
+    border: 1px solid $borderHairline;
 
     @include respond(tab-port) {
-      width: 4.5rem;
-      height: 4.5rem;
+      width: 3.8rem;
+      height: 3.8rem;
       margin-right: 1.2rem;
     }
   }
@@ -49,10 +53,10 @@
     display: block;
   }
   &__logo-sub {
-    font-size: 1.8rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 1px;
+    font-family: $fontMono;
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
   }
   &__links {
     display: flex;
@@ -61,29 +65,30 @@
     }
   }
   &__link {
-    padding: 2.2rem 3rem;
+    padding: 2.4rem 2.4rem;
     display: inline-block;
-    font-size: 1.6rem;
-    color: #333;
+    font-family: $fontMono;
+    font-size: 1.3rem;
+    color: $textMuted;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700;
-    transition: color .3s;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+    transition: color 0.3s;
 
     &:hover {
-      color: $themeClrPrimary;
+      color: $accent;
     }
     @include respond(tab-port) {
-      padding: 3rem 1.8rem;
-      font-size: 1.5rem;
+      padding: 2.6rem 1.5rem;
+      font-size: 1.2rem;
     }
   }
 
   &__main-ham-menu-cont {
     display: none;
-    width: 3rem;
-
+    width: 2.4rem;
     padding: 2.2rem 0;
+    filter: invert(1);
 
     @include respond(phone) {
       display: block;
@@ -97,21 +102,19 @@
   }
 
   &__sm-menu {
-    background: #fff;
+    background: $bgSurface;
+    border-bottom: 1px solid $borderHairline;
     position: absolute;
     width: 100%;
     top: 100%;
     visibility: hidden;
     opacity: 0;
-    transition: all .3s;
-    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
 
     &--active {
       visibility: hidden;
       opacity: 0;
-   
+
       @include respond(phone) {
         visibility: visible;
         opacity: 1;
@@ -122,23 +125,24 @@
     a {
       display: block;
       text-decoration: none;
-      padding: 2.5rem 3rem;
-      font-size: 1.6rem;
-      color: #333;
+      padding: 2.2rem 3rem;
+      font-family: $fontMono;
+      font-size: 1.4rem;
+      color: $textMuted;
       text-align: right;
-      border-bottom: 1px solid #eee;
-      font-weight: 700;
+      border-bottom: 1px solid $borderHairline;
+      font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      transition: color .3s;
-      
+      letter-spacing: 0.08em;
+      transition: color 0.3s;
+
       &:hover {
-        color: $themeClrPrimary;
+        color: $accent;
       }
     }
     &:first-child {
       a {
-        border-top: 1px solid #eee;
+        border-top: 1px solid $borderHairline;
       }
     }
   }

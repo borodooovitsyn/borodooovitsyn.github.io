@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Horizon Expedition — Case Study | Artyom Borodovitsyn</title>
-    <meta name="description" content="Case study: Horizon Expedition, a server-authoritative Unity multiplayer game built with Mirror Networking." />
+    <title>Signals Trading Console — Case Study | Artyom Borodovitsyn</title>
+    <meta name="description" content="Case study: Signals, an async Python engine that scans multiple exchanges for arbitrage and basis opportunities with a live Qt dashboard." />
 
     <link rel="stylesheet" href="css/style.css" />
 
@@ -58,14 +58,14 @@
     <section class="project-cs-hero">
       <div class="project-cs-hero__content">
         <div class="project-cs-hero__eyebrow">
-          <span class="eyebrow">Case Study / PROJ_03</span>
+          <span class="eyebrow">Case Study / PROJ_01</span>
         </div>
-        <h1 class="heading-primary">Horizon Expedition</h1>
+        <h1 class="heading-primary">Signals Trading Console</h1>
         <div class="project-cs-hero__info">
           <p class="text-primary">
-            3D multiplayer survival and exploration game built in Unity.
-            Features include synchronized combat, trading, and networked player systems
-            developed using Mirror and C#. Designed for scalability and cooperative gameplay.
+            An async Python engine that watches Binance, Coinbase, and Kraken for cross-exchange,
+            triangular, and futures-basis opportunities in real time — rendered live in a Qt
+            dashboard, with a built-in paper-trading engine to test strategies before risking anything.
           </p>
         </div>
       </div>
@@ -74,15 +74,14 @@
     <section class="project-details">
       <div class="main-container">
         <div class="project-details__content">
-          <!-- SCREENSHOT SLOT: currently showing the project logo as a placeholder.
-               Replace with real gameplay footage/screenshot — combat, inventory UI, or
-               the voxel world. See screenshot capture instructions in index.html
-               comments / README. -->
+          <!-- SCREENSHOT SLOT: Qt dashboard mid-scan (portfolio panel + strategy tables visible)
+               or the Rich terminal dashboard. See screenshot capture instructions in
+               index.html comments / README. -->
           <div class="device">
             <img
               class="device__screen"
-              src="./assets/png/hex_logo.png"
-              alt="Horizon Expedition Logo"
+              src="./assets/png/signals-dashboard.png"
+              alt="Signals Trading Console — live dashboard"
             />
           </div>
 
@@ -90,76 +89,91 @@
             <div class="project-details__desc">
               <h3 class="project-details__content-title">Project Overview</h3>
               <p class="project-details__desc-para">
-                <strong>Horizon Expedition</strong> is a 3D multiplayer exploration and combat game
-                developed in <strong>Unity</strong> using <strong>Mirror Networking</strong>.
-                The project focuses on player cooperation, synchronized interactions, and
-                a dynamic world that responds in real-time to every player’s actions.
+                <strong>Signals</strong> is a modular trading engine built around a single async loop:
+                a <code>TradingEngine</code> polls exchange adapters, feeds live order books into a set
+                of pluggable strategies, and renders the results either as a full-screen Rich terminal
+                dashboard or a native <strong>PyQt</strong> window — same engine, two front ends.
               </p>
 
               <p class="project-details__desc-para">
-                The core idea was to build a scalable multiplayer framework capable of
-                supporting <strong>real-time player combat</strong>, <strong>shared world objects</strong>,
-                and <strong>network-synced inventories</strong>. Each player controls a fully animated 3D character
-                equipped with movement, combat, and interaction systems designed to work seamlessly over a network.
+                The core arbitrage strategy doesn't just diff top-of-book prices. It pulls real order-book
+                depth from each exchange, computes a <strong>VWAP-weighted fill price</strong> for the
+                configured notional size, and only then calculates the net spread — so the numbers on
+                screen reflect what an order of that size would actually fill at, not an optimistic quote.
+              </p>
+
+              <div class="code-block">
+                <span class="code-block__label">core/orderbook.py</span>
+                <pre><code>def vwap_price(levels: List[Tuple[float, float]], qty: float) -> Optional[float]:
+    """Given [(price, qty)] levels, return average execution
+    price to fill `qty`. Returns None if insufficient depth."""
+    remain = qty
+    notional = 0.0
+    filled = 0.0
+    for price, level_qty in levels:
+        if remain &lt;= 0:
+            break
+        take = min(remain, level_qty)
+        notional += take * price
+        filled += take
+        remain -= take
+    if remain &gt; 0:
+        return None
+    return notional / filled</code></pre>
+              </div>
+
+              <p class="project-details__desc-para">
+                A separate <strong>triangular arbitrage</strong> scanner routes through single-venue pairs,
+                and a <strong>futures-basis</strong> strategy compares spot marks against perpetual futures
+                to surface basis trades. All three strategies share the same <code>Strategy</code> base
+                class and <code>StrategyContext</code>, so adding a new venue or a new strategy doesn't
+                touch the engine's core wiring.
               </p>
 
               <p class="project-details__desc-para">
-                Every element — from stamina and health systems to inventory and merchant interfaces —
-                was built with <strong>server authority</strong> in mind to ensure fairness and prevent desynchronization.
-                Players can collect, equip, trade, and store items across sessions through a global inventory system.
-              </p>
-
-              <p class="project-details__desc-para">
-                The project’s architecture follows a modular component design,
-                separating responsibilities between networking logic, UI management, and core gameplay.
-                This makes it easy to extend with additional features some of which were already shipped:
-                trading system and procedurally generated maps.
-              </p>
-
-              <p class="project-details__desc-para">
-                Developed collaboratively by a small team of designers and programmers,
-                <strong>Horizon Expedition</strong> reflects a balance between technical precision and
-                creative design. The project served as a foundation for exploring concepts like
-                <strong>player synchronization</strong>, <strong>server-side validation</strong>,
-                and <strong>network object spawning</strong> in modern Unity environments.
+                A <strong>paper-trading engine</strong> runs alongside the live scan, opening and closing
+                simulated positions off real market data — exit thresholds, blowout stops, and max hold
+                times are all configurable — so a strategy's edge can be tracked over time before it's
+                ever backed by real capital. A Binance WebSocket feed keeps spot and futures mark prices
+                live between polls, with automatic fallback to REST if the socket drops.
               </p>
             </div>
 
             <div class="project-details__tools-used">
               <h3 class="project-details__content-title">Tools Used</h3>
               <div class="skills">
-                <div class="skills__skill">Unity</div>
-                <div class="skills__skill">C#</div>
-                <div class="skills__skill">Mirror Networking</div>
-                <div class="skills__skill">Blender</div>
-                <div class="skills__skill">MagicaVoxel</div>
-                <div class="skills__skill">Git</div>
-                <div class="skills__skill">Visual Studio</div>
-                <div class="skills__skill">Testing</div>
+                <div class="skills__skill">Python</div>
+                <div class="skills__skill">asyncio</div>
+                <div class="skills__skill">PyQt</div>
+                <div class="skills__skill">Rich</div>
+                <div class="skills__skill">WebSockets</div>
+                <div class="skills__skill">Binance API</div>
+                <div class="skills__skill">Coinbase API</div>
+                <div class="skills__skill">Kraken API</div>
               </div>
             </div>
 
             <div class="project-details__desc">
               <h3 class="project-details__content-title">Key Features</h3>
               <ul class="project-details__desc-para">
-                <li><strong>Multiplayer Networking</strong> – Real-time player synchronization using Mirror with server-side control.</li>
-                <li><strong>Combat System</strong> – Melee and ranged combat with animation triggers, hit detection, and cooldown logic.</li>
-                <li><strong>Inventory & Merchant Systems</strong> – Dynamic item management with server-wide consistency.</li>
-                <li><strong>Player Stats</strong> – Stamina, hunger, and thirst mechanics that affect movement and performance.</li>
-                <li><strong>NPC AI</strong> – Basic and ranged enemies powered by behavior trees and pathfinding.</li>
-                <li><strong>UI/UX Systems</strong> – Interactive menus, chest systems, and a responsive pause/inventory interface.</li>
-                <li><strong>Voxel-Based World</strong> – Lightweight voxel maps built in MagicaVoxel and integrated with collision systems.</li>
+                <li><strong>Cross-Exchange Arbitrage</strong> – Depth-aware VWAP pricing across three exchanges, not just top-of-book quotes.</li>
+                <li><strong>Triangular Arbitrage</strong> – Single-venue routing scanner for multi-leg opportunities.</li>
+                <li><strong>Futures Basis</strong> – Compares spot vs. perpetual marks to surface basis trades.</li>
+                <li><strong>Paper Trading Engine</strong> – Simulated fills against live data with configurable exits, stops, and hold times.</li>
+                <li><strong>Live Qt Dashboard</strong> – Native desktop window with portfolio snapshot and per-strategy panels.</li>
+                <li><strong>Binance WebSocket Feed</strong> – Live spot + futures mark prices with automatic REST fallback.</li>
+                <li><strong>Rich Terminal Fallback</strong> – Full-screen console dashboard sharing the same engine, no GUI dependency required.</li>
               </ul>
             </div>
 
             <div class="project-details__desc">
               <h3 class="project-details__content-title">Development Highlights</h3>
               <ul class="project-details__desc-para">
-                <li>- Implemented authoritative server mechanics to ensure consistent gameplay across clients.</li>
-                <li>- Created custom player prefabs with synchronized stats, animations, and interactions.</li>
-                <li>- Integrated dynamic inventory UI and merchant NPC trading using scriptable objects.</li>
-                <li>- Designed an extendable combat manager for future addition of abilities and ranged attacks.</li>
-                <li>- Managed version control through GitHub for collaborative workflow.</li>
+                <li>- Built a shared <code>Strategy</code>/<code>StrategyContext</code> interface so exchanges and strategies compose independently of the engine loop.</li>
+                <li>- Implemented order-book VWAP fill pricing instead of naive best-bid/best-ask spread math.</li>
+                <li>- Wrote a standalone paper-trading engine that consumes the same strategy output as the live dashboard.</li>
+                <li>- Added a Binance WebSocket feed for live mark prices, with graceful fallback to REST polling.</li>
+                <li>- Covered exchange adapters and the futures strategy with an async test suite.</li>
               </ul>
             </div>
 
