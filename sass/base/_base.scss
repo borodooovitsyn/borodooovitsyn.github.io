@@ -94,6 +94,17 @@ textarea {
   color: $bgPrimary;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: $bgPrimary;
+}
+::-webkit-scrollbar-thumb {
+  background: $borderHairline;
+  border-radius: 6px;
+}
+
 code {
   font-family: $fontMono;
   font-size: 0.9em;

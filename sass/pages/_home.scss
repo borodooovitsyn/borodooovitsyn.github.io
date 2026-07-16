@@ -45,11 +45,11 @@
     padding: 1.1rem;
     border-bottom: 1px solid $borderHairline;
     transition: background 0.3s;
-    filter: grayscale(1) invert(0.9);
+    filter: invert(1) grayscale(1) opacity(0.65);
 
     &:hover {
       background: rgba($accent, 0.1);
-      filter: none;
+      filter: invert(1) grayscale(1) opacity(1);
     }
 
     &--bd-none {
@@ -152,11 +152,31 @@
     border-radius: $commonBorderRadius;
     overflow: hidden;
     background: $bgSurface;
-    transition: border-color 0.3s, transform 0.3s;
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    clip-path: polygon(0 0, calc(100% - 2.2rem) 0, 100% 2.2rem, 100% 100%, 0 100%);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 2.2rem 2.2rem 0;
+      border-color: transparent $borderHairline transparent transparent;
+      transition: border-color 0.3s;
+    }
 
     &:hover {
       border-color: rgba($accent, 0.5);
       transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba($textPrimary, 0.08);
+
+      &::after {
+        border-color: transparent $accent transparent transparent;
+      }
 
       .projects__row-img,
       .projects__row-placeholder {
@@ -219,7 +239,7 @@
       font-family: $fontMono;
       font-size: 1.2rem;
       letter-spacing: 0.06em;
-      color: $accent;
+      color: $accentAlt;
       margin-bottom: 1.2rem;
     }
 

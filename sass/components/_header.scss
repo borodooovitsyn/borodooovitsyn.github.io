@@ -88,7 +88,6 @@
     display: none;
     width: 2.4rem;
     padding: 2.2rem 0;
-    filter: invert(1);
 
     @include respond(phone) {
       display: block;

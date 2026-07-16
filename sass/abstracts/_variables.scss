@@ -1,21 +1,22 @@
-// Color system
-$bgPrimary: #0a0a0c;
-$bgSurface: #131316;
-$bgSurfaceHi: #1b1b1f;
-$borderHairline: #2a2a2e;
+// Color system — "control panel" palette: warm paper + steel blue + rust
+$bgPrimary: #f6f4ee;
+$bgSurface: #ece7da;
+$bgSurfaceHi: #e0d9c8;
+$borderHairline: #cbc2ac;
 
-$textPrimary: #e8e6e1;
-$textMuted: #8b8a87;
-$textFaint: #58585a;
+$textPrimary: #1c1b19;
+$textMuted: #6b6558;
+$textFaint: #9a927e;
 
-$accent: #ff6b35;
-$accentDim: #cc4f1f;
+$accent: #3d5a80;
+$accentDim: #2e4460;
+$accentAlt: #c9472b;
 
 $themeClrPrimary: $accent; // legacy alias used across markup
 
-$commonBorderRadius: 6px;
+$commonBorderRadius: 3px;
 
 // Type
-$fontDisplay: 'Space Grotesk', sans-serif;
-$fontBody: 'Inter', sans-serif;
-$fontMono: 'JetBrains Mono', monospace;
+$fontDisplay: 'Fraunces', serif;
+$fontBody: 'IBM Plex Sans', sans-serif;
+$fontMono: 'IBM Plex Mono', monospace;

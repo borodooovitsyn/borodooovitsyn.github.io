@@ -19,14 +19,14 @@
   font-size: 1.3rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: $accent;
+  color: $accentAlt;
   margin-bottom: 1.6rem;
 
   &::before {
     content: '';
     width: 1.6rem;
     height: 2px;
-    background: $accent;
+    background: $accentAlt;
     display: inline-block;
   }
 }
@@ -107,7 +107,7 @@
 
   &:hover {
     transform: translateY(-2px);
-    background: #ff7f52;
+    background: $accentDim;
     box-shadow: 0 8px 24px rgba($accent, 0.25);
   }
 
